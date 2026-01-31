@@ -12,7 +12,6 @@
     header("Location: /pustakalaya/roles/users/dash.php");
     exit;
   }
-  //test
 ?>
 <html>
   <head>
