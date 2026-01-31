@@ -5,6 +5,8 @@ require __DIR__ . '/PHPMailer/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+//hi testing smth
 function sendOTP($email) {
     $otp = random_int(100000, 999999);
 
