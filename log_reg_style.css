@@ -1,0 +1,65 @@
+
+body{
+    background-color: rgb(27, 27, 27);
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+div{
+    position: relative;
+    background-color: rgb(68, 68, 68);
+    color:white;
+    height:55%;
+    width: 25%;
+    padding:20px;
+    min-width: 300px;
+    border-radius: 25px;
+}
+
+button{
+    position: relative;
+    bottom: 10px;
+    width:50%;
+    padding:10px;
+    border-radius: 10px;
+    border:2px solid rgb(24, 61, 24);
+    background-color:rgb(52, 159, 52);
+    cursor:pointer;
+}
+table{
+    color:rgb(167, 167, 167);
+    padding: 20px;
+    border-spacing: 0 10px;
+}
+textarea{
+    resize: none;
+    height: auto;
+    min-height: 90px;
+    color:white;
+    border-color: black;
+    background-color: transparent;
+    overflow-y:auto;
+}
+input{
+    width: 110%;
+    color:white;
+    border-color: black;
+    background-color: transparent;
+}
+#message{
+    font-size:20;
+    position: relative;
+    top:80px;
+    padding: 0 0 0 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+#otp{
+    color:rgb(167, 167, 167);
+    padding: 20px;
+    border-spacing: 0 10px;
+}
+a{
+    color:inherit;
+}

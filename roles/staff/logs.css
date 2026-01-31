@@ -1,0 +1,86 @@
+    body{
+    background-color: rgb(27, 27, 27);
+    position:relative;
+    display:flex;
+    margin:10 0 0 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: center;
+    
+    }
+    #message{
+        all:unset;
+        font-size:20;
+        position: relative;
+        padding: 0 0 0 25px;
+        font-weight: bold;
+        color: rgb(255, 0, 0);
+    }
+    div{
+        position: relative;
+        background-color: rgb(68, 68, 68);
+        width:100%;
+        height:auto;
+        margin:0px;
+        color:white;
+        border-radius: 25px;
+    
+    }
+    table{
+        position: relative;
+        border-radius: 25px;
+        table-layout: fixed;
+        background-color: rgb(68, 68, 68);
+        color:rgb(167, 167, 167);
+        padding: 0 0 0 0px;
+        border-spacing: 10 10px;
+    }
+    th, td {
+        overflow: hidden;     
+        text-overflow: ellipsis;  
+    }
+    textarea{
+        all :unset;
+        resize:none;
+        height: 100px;
+        width: 200px;
+        background-color: white;
+    }
+    .searchfunction{
+        all: unset;
+        display: flex;
+        flex-wrap:right;
+        position:relative;
+        justify-content: left;
+        left: 90px;
+        top:-17px;
+        
+    }
+    #search{
+        all:unset;
+        position: relative;
+        cursor:pointer;
+        height:30px;
+    }
+    .searchfunction #searchbar{
+        position: relative;
+        left:10px;
+        height: 25px;
+        min-width: 350px;
+        padding:0 0 0 25px;
+        display: none;
+        border-radius: 10px;
+        border: none;
+    }
+    .searchfunction #but{
+        position: relative;
+        margin-left:auto;
+        border:none;
+        top:-22px;
+        padding: 2 10 2 10px;
+        background-color: rgb(36, 36, 36);
+        color:rgb(167, 167, 167);
+        border-radius: 10px;
+        cursor: pointer;
+        display: none;
+    }
