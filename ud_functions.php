@@ -383,4 +383,58 @@ $email_regex = '/^[^@\s]+@[^@\s]+\.[^@\s]+$/';
 		exit;
 	}
    }
+
+  function bookmarksearch($searchquery,$uid){
+
+   global $conn;
+   $searchquery = ['query' => $searchquery];
+
+   if(validateuip($searchquery)){
+	   $searchquery= $searchquery['query'];
+	   $sql = "
+	   SELECT b.bookmark_id,u.id AS user_id,bk.id AS book_id,bk.title AS book_title,bk.author AS book_author,bk.cover AS cover,bk.genre AS genre,bk.description AS description,bk.file_path AS file_path,b.marked_on,b.status
+		   FROM bookmarks b
+		   JOIN users u ON b.u_id = u.id
+		   JOIN books bk ON b.book_id = bk.id
+		   WHERE u.id = $uid
+		   AND (bk.title LIKE '%$searchquery%' OR 
+			   bk.author LIKE '%$searchquery%' OR 
+			   bk.genre LIKE '%$searchquery%' OR 
+			   bk.description LIKE '%$searchquery%' OR
+			   b.status LIKE '%$searchquery%')
+		   
+		   ORDER BY b.marked_on DESC ";
+	   $result = mysqli_query($conn, $sql);
+	   $numrow = mysqli_num_rows($result);
+	   
+	   if($numrow === 0 ){
+			$message = "No results for ' ". $searchquery ." '.";
+            echo"<p id='message' style='top:unset;padding:unset;'> ".$message."</p> ";
+            $message = "";
+	   }else
+	   {
+	   	  while ($book = mysqli_fetch_assoc($result)) {
+		   echo '<div class="marked-books"><a style="all:unset; cursor:pointer;" href="/pustakalaya/roles/book.php?id=' . $book['book_id'] . '&from=books">
+				   <img src="'. $book['cover'] .'"></a>
+				   <div class="book-detail">
+					<form><a style="all:unset; cursor:pointer;" href="/pustakalaya/roles/book.php?id=' . $book['book_id'] . '&from=books">
+					   <h3>'. $book['book_title'] .'</h3>
+					   <h4>By: '. $book['book_author'] .'</h4>
+					   <h4>Added on: '. $book['marked_on'] .'</h4></a>
+					   Status:
+					   <select name="reading-status">
+						   <option value="reading" '. ($book['status'] == 'reading' ? 'selected' : '') .'>Reading</option>
+						   <option value="planned" '. ($book['status'] == 'planned' ? 'selected' : '') .'>Planned</option>
+						   <option value="completed" '. ($book['status'] == 'completed' ? 'selected' : '') .'>Completed</option>
+						   <option value="dropped" '. ($book['status'] == 'dropped' ? 'selected' : '') .'>Dropped</option>
+					   </select>&nbsp;&nbsp;&nbsp;
+					   <button style="z-index:99;" type="submit" name="submit" value="'.$book['book_id'].'">Save</button>
+					</form>
+				   </div>
+			   </div>';
+
+	   		}
+   		}
+   	}
+   }
 ?>

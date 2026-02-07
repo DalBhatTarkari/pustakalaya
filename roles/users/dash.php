@@ -24,7 +24,7 @@
                 <img src="/pustakalaya/images/home.png" class="icon" id="home" onclick="window.location.href='dash.php'">
                 <?php
                     if (!empty($_SESSION['uname'])) {
-                        echo '<img src="/pustakalaya/images/accicon.png" class="icon" id="home" onclick="window.location.href=\'../profile.php\'">';
+                        echo '<img src="/pustakalaya/images/accicon.png" class="icon" id="home" onclick="window.location.href=\'../bookmarks.php\'">';
                     } else {
                         echo '<input type="button" value="Login" class="icon" id="loginbut" onclick="window.location.href=\'../../login.php\'">';
                     }

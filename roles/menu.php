@@ -59,6 +59,7 @@ function menu() {
             echo '<a class="item" href="/pustakalaya/roles/staff/addbook.php">Add a Book</a><br>';
         }
         echo '<a class="item" href="/pustakalaya/roles/users/requestbooks.php">Request a Book</a><br>
+            <a class="item" href="/pustakalaya/roles/bookmarks.php">Bookmarks</a><br>
             <a class="item" href="/pustakalaya/changepassword.php">Change Password</a><br>
             <a class="item" href="/pustakalaya/logout.php">Logout</a><br>
             ';

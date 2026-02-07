@@ -19,7 +19,7 @@
 
   $action = "disabled";
   if(!empty($_SESSION['role']) ){
-    if($_SESSION['role'] != "user"){$action = "";}
+    if($_SESSION['role'] != "user"){$action = "";}    //action is the perms of users if staff an edit fields else they cant
   }
   
 ?>
@@ -91,7 +91,7 @@
     }
     ?>
             <br><br>
-            <img src='<?php echo $cover;?>'><br>
+            <img style="height:250px;"src='<?php echo $cover;?>'><br>
 			<form method="POST">
 			 <table style="margin: auto;"> 
 				<tr><th>Title:</th><td><input type="text" name="title" placeholder="Enter Book Title" required <?php echo 'value="'.$title.'" ' .$action;?>></td></tr>
@@ -126,7 +126,9 @@
             if($initialstatus == "approved")
                 echo '<td><button name="delete" style="width:70px;">Delete</button></td></tr>';
             }
-            
+            if(!empty($_SESSION['id']) && $_GET['from'] == "books"){
+                echo '<button name="bookmark" style="background-color:rgb(36, 53, 78)">Bookmark</button>';
+            }
         ?></table><br>
 			 
 			</form>	
@@ -170,7 +172,7 @@
     }else{
         $_SESSION['message'] = "Failed to change Book status";
     }
-    header("Location: /pustakalaya/roles/users/dash.php");
+    echo '<script>window.location.replace("/pustakalaya/roles/users/dash.php");</script>';
   }
 
   if(isset($_POST['delete']) && $action == "")
@@ -193,7 +195,23 @@
       }else{
           $_SESSION['message'] = "Failed to delete Book status";
       }
-      header("Location: /pustakalaya/roles/users/dash.php");
+      echo '<script>window.location.replace("/pustakalaya/roles/users/dash.php");</script>';
+    }
+    if(isset($_POST['bookmark']) && !empty($_SESSION['id'])){
+      $uid= $_SESSION['id'];
+      $get_sql = "SELECT * FROM bookmarks WHERE u_id = $uid AND book_id = $id";
+      $res = mysqli_query($conn,$get_sql);
+      if(mysqli_num_rows($res) == 0){
+        $markedon=date("Y-m-d H:i:s");
+        $bookmark_sql = "INSERT INTO bookmarks (u_id, book_id, marked_on, status) VALUES($uid,$id,'$markedon','reading')";
+        if(mysqli_query($conn,$bookmark_sql)){
+          $_SESSION['message'] = "Book Bookmarked Sucessfully.";
+          echo '<script>window.location.replace("/pustakalaya/roles/users/dash.php");</script>';
+        }
+      }else{
+        $_SESSION['message'] = "Book Already Bookmarked.";
+        echo '<script>window.location.replace("/pustakalaya/roles/users/dash.php");</script>';
+      }
     }
 ?>
 

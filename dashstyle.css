@@ -1,6 +1,8 @@
 body{
     background-color: rgb(27, 27, 27);
-    overflow-x:scroll;
+    margin-right: 5%;
+
+
 }
 .header{
     background-color: rgb(24, 24, 24);
@@ -124,6 +126,63 @@ input[type="submit"] {
     border: 1px solid rgb(82, 76, 76);
     padding: 0 20 0 20px;
 }
+#bookmark-container{
+    position: relative;
+    gap: 20px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    top:80px;
+    left:30px;
+}
+.marked-books{
+    position: relative;
+    display: flex;
+    flex-wrap : nowrap;
+    border-radius: 10px;
+    background-color: rgb(99, 99, 99);
+    align-items: center;
+    padding:15 5 20 5px;
+    width: 450px;
+}
+.marked-books img{
+    border-radius: 10px;
+    position:relative;
+    left:20px;
+    height:150px;
+}
+.book-detail{
+    position: relative;
+    align-items: unset;
+    margin: 0 0 0 30px;
+    background-color: transparent;
+}
+.book-detail h3{
+    position: relative;
+    background-color: transparent;
+}
+.book-detail button{
+    position: relative;
+    top:5px;
+    width: 60px;
+    margin:5 0 0 0px;
+    border-radius: 10px;
+    border: 2px solid rgb(24, 61, 24);
+    background-color: rgb(52, 159, 52);
+    cursor: pointer;
+}
+.book-detail select{
+    position: relative;
+    top:5px;
+    width: 110px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid rgb(24, 61, 24);
+    background-color: grey;
+    cursor: pointer;
+}
+
 .footer{
     background-color: rgb(24, 24, 24);
     position:fixed;
