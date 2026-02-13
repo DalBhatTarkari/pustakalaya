@@ -1,14 +1,15 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT']."/pustakalaya/ud_functions.php";
     require $_SERVER['DOCUMENT_ROOT']."/pustakalaya/db.php";
+    
 function search($searchquery,$page,$db){
     if($db != ""){
         $db="req";
     }else{
         $db="books";
     }
-    global $conn;
-    $offset = 4* ((int)$page-1);
+    global $conn,$booksperpage;
+    $offset = $booksperpage* ((int)$page-1);
 
     $searchquery=['query' => $searchquery];
 
@@ -20,7 +21,7 @@ function search($searchquery,$page,$db){
            OR genre LIKE '%$searchquery%'
            OR description LIKE '%$searchquery%'
            ORDER BY title ASC
-           LIMIT 4 OFFSET $offset";
+           LIMIT $booksperpage OFFSET $offset";
         $result = mysqli_query($conn,$sql);
         $numrow=mysqli_num_rows($result);
         if($numrow == 0){

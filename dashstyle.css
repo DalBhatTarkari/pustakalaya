@@ -59,7 +59,7 @@ input[type="submit"] {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    padding: 100 0 0 0px;
+    padding: 100 0 100 0px;
     gap: 25px;
     justify-content: space-evenly;
     z-index: 1;
@@ -71,7 +71,6 @@ input[type="submit"] {
     padding-bottom: 25px;
     background-color: grey;
     width: 350px;
-    
     text-align: center;
 }
 .bookcard:hover{
@@ -193,8 +192,7 @@ input[type="submit"] {
     bottom:0px;
     left:-10px;
     width:110%;
-    height:5%;
-    min-height: 75px;
+    min-height: 50px;
     border-top:1px solid cyan;
     gap:5px;
     z-index: 100;

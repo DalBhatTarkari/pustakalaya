@@ -41,6 +41,7 @@
             $_SESSION['message']="";
             }?>
     </body>
+    
     <script>
        
      function gotopage(pgnum) {
@@ -56,7 +57,7 @@
     </script>
 </html>
 <?php
-
+$booksperpage = 8;
 
 
 $pagenum = $_GET['pgnum'] ?? 1;
@@ -67,11 +68,11 @@ if(isset($_GET['submit'])){
     $rownum= (int)search("",$pagenum,"");
 }
 
-$pagecount = $rownum/4;
+$pagecount = $rownum/$booksperpage;
 if( $pagecount> (int)$pagecount){
     $pagecount = (int)$pagecount+1;
 }
-echo '<div class="footer">';
+echo '<div class="footer"';
 if($pagenum>1){
     echo'<a  style="position:absolute;left:3%;" href="#" onclick="gotopage('.($pagenum - 1).')" ><div class="pgnum" ><--Previous </div></a>';
 }
@@ -80,7 +81,7 @@ if($pagenum>1){
 for($i = 1; $i <= $pagecount; $i++) {
     $class = ($i == $pagenum) ? "currentpg" : "";
     echo '<a href="#" onclick="gotopage('.$i.')">
-            <div class="pgnum '.$class.'" id="'.$i.'">'.$i.'</div>
+            <div class="pgnum '.$class.'" id="'.$i.($class=="currentpg" ? " disabled " : "").'">'.$i.'</div>
           </a>';
 }
 if($pagenum < $pagecount){

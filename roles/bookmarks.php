@@ -25,6 +25,7 @@
                 </form>
                 <img src="/pustakalaya/images/searchglass.png" class="icon" id="search" onclick="showbar()">
                 <img src="/pustakalaya/images/home.png" class="icon" id="home" onclick="window.location.href='/pustakalaya/roles/users/dash.php'">
+                <img src="/pustakalaya/images/accicon.png" class="icon" id="home" onclick="window.location.href='bookmarks.php'">
             </div>
         </div>
         
