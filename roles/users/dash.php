@@ -57,7 +57,7 @@
     </script>
 </html>
 <?php
-$booksperpage = 8;
+$booksperpage = 12;
 
 
 $pagenum = $_GET['pgnum'] ?? 1;
