@@ -10,20 +10,21 @@
   <title>Register</title>
   <link rel="stylesheet" type="text/css" href="log_reg_style.css">
  </head>
+ <script src="/pustakalaya/validate.js"></script>
  <body> 
  <div style= "height:500px;">
   <form method="POST">
 
   <?php require "goback.php"; goback()?> <!--adds the backbutton defined in the goback.php file -->
   <h1>Register </h1>
-  <p class="message" style="color:red;"><?php echo $_SESSION['message'];$_SESSION['message'] = "";?></p>
+  <p class="message" style="color:red;" id="msg"><?php echo $_SESSION['message'];$_SESSION['message'] = "";?></p>
    <table>
     <tr><th>Username: </th><td><input type="text" name="uname"  id="uname" required></td></tr>
     <tr><th>Email: </th><td><input type="email" name="email" id="email"required></td></tr>
     <tr><th>Password: </th><td><input type="password" name="pw" id="pw" required></td></tr>
 	<tr><th>Confirm Password: </th><td><input type="password" name="cpw" id="cpw" required></td></tr>
    </table>
-   <button name="submit" id="submit">Register</button>
+   <button name="submit" id="submit" disabled onmouseover="validate()">Register</button>
   </form>
   <button onclick="window.location.href='/pustakalaya/login.php'">Login as <br>Returning User</button>
   <br><a href='/pustakalaya/forgotpassword.php'>Forgot Password</a>

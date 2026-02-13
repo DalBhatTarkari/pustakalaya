@@ -13,10 +13,13 @@
     <title>Request a new book</title>
     <link href="/pustakalaya/log_reg_style.css" type="text/css" rel="stylesheet">
   </head>
+  <script src="/pustakalaya/validate.js"></script>
   <body>
     <div class="form-container">
       <?php goback(); ?>
 			<h2>Request to Add a Book</h2>
+      <p class="message" style="color:red;" id="msg"></p>
+ 
 			<form method="POST">
 			 <table style="margin: auto;"> 
 				<tr><th>Title:</th><td><input type="text" name="title" placeholder="Enter Book Title" required></td></tr>
@@ -24,7 +27,7 @@
 				<tr><th>Genre:</th><td><input type="text" name="genre"  required placeholder="Fantasy,action,comedy,etc" required></td></tr>
 				<tr><th>Description:</th><td><textarea name="description" placeholder="Enter Book Description" required maxlength="500"></textarea></td></tr>
 			 </table><br>
-			 <button name="request">Send Request</button> 
+			 <button name="request" id="submit" disabled onmouseover="validate()">Send Request</button> 
 			</form>	
     </div>
   </body>
