@@ -1,7 +1,7 @@
 <?php 
 function menu() {
     echo '
-    <script src="../header.js"></script>
+    <script src="/pustakalaya/roles/header.js"></script>
     <style>
     #ham{
         position:fixed;

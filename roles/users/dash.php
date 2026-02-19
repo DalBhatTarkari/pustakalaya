@@ -8,7 +8,7 @@
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="/pustakalaya/dashstyle.css">
     </head>
-    <script src="../header.js"></script>
+    <script src="/pustakalaya/roles/header.js"></script>
     <body>
         <div class="header">
             <?php require "../menu.php"; 
@@ -72,7 +72,7 @@ $pagecount = $rownum/$booksperpage;
 if( $pagecount> (int)$pagecount){
     $pagecount = (int)$pagecount+1;
 }
-echo '<div class="footer"';
+echo '<div class="footer">';
 if($pagenum>1){
     echo'<a  style="position:absolute;left:3%;" href="#" onclick="gotopage('.($pagenum - 1).')" ><div class="pgnum" ><--Previous </div></a>';
 }
