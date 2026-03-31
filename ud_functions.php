@@ -2,6 +2,7 @@
 require "db.php";
 echo('<head>
 <link rel="icon" href="/pustakalaya/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>');
 $email_regex = '/^[^@\s]+@[^@\s]+\.[^@\s]+$/';
   function start_session($uname,$email){ // session start function
